@@ -1,0 +1,21 @@
+type Pod {
+	id: ID!
+	name: String!
+	type: String
+    description: String
+    creation_time: String! 
+}
+
+# Root
+type Query {
+	searchPod(name: String, type: String, description: String, sortkey: String, descending: Boolean): [Pod]!
+	getPodById(id: ID!): Pod
+}
+
+# Root
+type Mutation {
+	createPod(name: String!, type: String, description: String): Pod!
+    updatePod(id: ID!, name: String, type: String, description: String) : Pod!
+    deletePod(id: ID!) : Boolean
+}
+
