@@ -8,7 +8,12 @@ import org.springframework.data.domain.Sort;
 
 import com.mdt.gql.models.Pod;
 import com.mdt.gql.interfaces.PodRepository;
+
+import java.util.Optional;
+
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+
+import com.mdt.gql.exceptions.MdtException;
 
 @Component
 public class Query implements GraphQLQueryResolver {
@@ -38,8 +43,15 @@ public class Query implements GraphQLQueryResolver {
         return repo.findAll(exa, Sort.by(sortkey == null ? "name" : sortkey).ascending());
     }
 
-    public Pod getPodById(Long id) {
-        return repo.getById(id);
+    public Optional<Pod> getPodById(Long id) {
+        Optional<Pod> pod;
+
+        try {
+            pod = repo.findById(id);
+        } catch (Exception e) {
+            throw new MdtException(e.getMessage());
+        }
+        return pod;
     }
 
 }
