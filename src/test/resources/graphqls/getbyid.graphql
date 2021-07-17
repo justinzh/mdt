@@ -1,0 +1,9 @@
+query {
+    getPodById(id:54) {
+        id
+        name
+        type
+        description
+        creation_time
+    }
+}

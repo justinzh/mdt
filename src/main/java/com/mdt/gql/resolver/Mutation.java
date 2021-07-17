@@ -28,7 +28,7 @@ public class Mutation implements GraphQLMutationResolver {
         pod.setDescription(description);
 
         try {
-            repo.save(pod);
+            pod = repo.save(pod);
         } catch (Exception e) {
             throw new MdtException(e.getMessage());
         }

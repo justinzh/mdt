@@ -1,0 +1,9 @@
+mutation {
+    createPod(name:"LeTV", type:"TOOL", description:"65 inch big screen TV") {
+        id
+        name
+        type
+        description
+        creation_time
+    }
+}

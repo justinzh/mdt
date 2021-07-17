@@ -1,0 +1,9 @@
+mutation {
+    updatePod(id: 54, type: "PETS") {
+        id
+        name
+        type
+        description
+        creation_time
+    }
+}

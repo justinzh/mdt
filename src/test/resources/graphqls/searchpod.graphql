@@ -1,0 +1,9 @@
+query { 
+    searchPod(type:"film", sortkey:"id", descending: false) { 
+        id 
+        name 
+        type 
+        description 
+        creation_time 
+    }
+}
